@@ -1,5 +1,12 @@
 import { assertNotNull } from '@subsquid/util-internal'
-import { EvmBatchProcessor} from '@subsquid/evm-processor'
+import {
+  BlockHeader,
+  DataHandlerContext,
+  EvmBatchProcessor,
+  EvmBatchProcessorFields,
+  Log as _Log,
+  Transaction as _Transaction,
+} from '@subsquid/evm-processor'
 import { lookupArchive } from '@subsquid/archive-registry'
 import { OwnershipTransferred, Trade } from './model'
 import * as FriendtechSharesV1 from './abi/FriendtechSharesV1'
@@ -31,4 +38,10 @@ export const processor = new EvmBatchProcessor()
       FriendtechSharesV1.events.OwnershipTransferred.topic,
       FriendtechSharesV1.events.Trade.topic,
     ],
+    transaction: true
   })
+export type Fields = EvmBatchProcessorFields<typeof processor>;
+export type Block = BlockHeader<Fields>;
+export type Log = _Log<Fields>;
+export type Transaction = _Transaction<Fields>;
+export type ProcessorContext<Store> = DataHandlerContext<Store, Fields>;
