@@ -2,7 +2,7 @@ import {TypeormDatabase} from '@subsquid/typeorm-store';
 import {processor,CONTRACT_ADDRESS} from './processor';
 import { OwnershipTransferred, Trade} from './model';
 import * as FriendtechSharesV1ABI from './abi/FriendtechSharesV1';
-import { ID } from '@subsquid/graphql-server';
+
 
 
 
