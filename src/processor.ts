@@ -15,9 +15,9 @@ export const CONTRACT_ADDRESS = '0xCF205808Ed36593aa40a44F10c7f7C2F67d4A4d4'.toL
 
 export const processor = new EvmBatchProcessor()
   .setDataSource({
-    archive: lookupArchive('eth-mainnet'),
+    archive: lookupArchive('base-mainnet'),
     chain: {
-      url: 'https://rpc.ankr.com/eth',
+      url: 'https://mainnet.base.org',
       rateLimit: 10
     }
   })
